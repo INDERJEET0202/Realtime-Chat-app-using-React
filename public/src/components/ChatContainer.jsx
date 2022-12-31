@@ -5,6 +5,7 @@ import { sendMessageRoute, recieveMessageRoute } from "../utils/APIRoutes"
 import ChatInput from './ChatInput';
 import axios from 'axios';
 import { v4 as uuidv4 } from "uuid";
+import {format} from 'timeago.js'
 
 export default function ChatContainer({ currentChat, currentUser, socket }) {
 
@@ -115,6 +116,7 @@ export default function ChatContainer({ currentChat, currentUser, socket }) {
                                     >
                                         <div className="content ">
                                             <p>{message.message}</p>
+                                            {/* <span style={{}}>{format(message.updatedAt)}</span> */}
                                         </div>
                                     </div>
                                 </div>
