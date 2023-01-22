@@ -6,6 +6,9 @@ const messageRoutes = require("./routes/messageRoutes")
 const app = express()
 require("dotenv").config()
 
+// const DB = 'mongodb+srv://Indrajit_pal:akgpp5156g@cluster0.dj5b7m8.mongodb.net/chat?retryWrites=true&w=majority';
+
+const DB = process.env.DB;
 
 const socket = require("socket.io");
 
@@ -16,15 +19,26 @@ app.use("/api/auth", userRoutes);
 app.use("/api/messages", messageRoutes);
 
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGO_URL, {
+
+mongoose.connect(DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
-    console.log("Connected to MongoDB")
+    console.log("Connected to MongoDB (cloud)")
 }).catch((err) => {
     console.log("Error!!!")
     console.log(err)
 })
+
+// mongoose.connect(process.env.MONGO_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// }).then(() => {
+//     console.log("Connected to MongoDB")
+// }).catch((err) => {
+//     console.log("Error!!!")
+//     console.log(err)
+// })
 
 const server = app.listen(process.env.PORT, () => {
     console.log(`Server started on PORT ${process.env.PORT}`)
