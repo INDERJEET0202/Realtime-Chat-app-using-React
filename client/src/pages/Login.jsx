@@ -6,6 +6,7 @@ import Logo from "../assets/logo.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRoute } from "../utils/APIRoutes";
+import BackendStatus from "../components/BackendStatus";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -87,7 +88,9 @@ export default function Login() {
                         Don't have an account ? <Link to="/register">Create One.</Link>
                     </span>
                 </form>
+                <BackendStatus />
             </FormContainer>
+            
             <ToastContainer />
         </>
     );

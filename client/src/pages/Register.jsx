@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { registerRoute } from "../utils/APIRoutes";
 import { FcGoogle } from "react-icons/fc";
+import BackendStatus from '../components/BackendStatus';
 
 function Register() {
   const navigate = useNavigate();
@@ -90,6 +91,7 @@ function Register() {
   return (
         <>
         <FormContainer>
+        <BackendStatus />
           <form action="" onSubmit={(event) => handleSubmit(event)}>
             <div className="brand">
               <img src={Logo} alt="logo" />
@@ -130,6 +132,7 @@ function Register() {
               Already have an account ? <Link to="/login">Login.</Link>
             </span>
           </form>
+          
         </FormContainer>
         <ToastContainer />
       </>

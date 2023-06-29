@@ -143,6 +143,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    margin-top: 2rem;
     .user-details {
       display: flex;
       align-items: center;

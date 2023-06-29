@@ -20,25 +20,25 @@ app.use("/api/messages", messageRoutes);
 
 mongoose.set('strictQuery', true);
 
-mongoose.connect(DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
-    console.log("Connected to MongoDB (cloud)")
-}).catch((err) => {
-    console.log("Error!!!")
-    console.log(err)
-})
-
-// mongoose.connect(process.env.MONGO_URL, {
+// mongoose.connect(DB, {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
 // }).then(() => {
-//     console.log("Connected to MongoDB")
+//     console.log("Connected to MongoDB (cloud)")
 // }).catch((err) => {
 //     console.log("Error!!!")
 //     console.log(err)
 // })
+
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    console.log("Connected to MongoDB")
+}).catch((err) => {
+    console.log("Error!!!")
+    console.log(err)
+})
 
 const server = app.listen(process.env.PORT, () => {
     console.log(`Server started on PORT ${process.env.PORT}`)

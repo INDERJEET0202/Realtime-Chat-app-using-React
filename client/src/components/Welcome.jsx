@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Robot from "../assets/robot.gif";
+import BackendStatus from "./BackendStatus";
 import Logout from "./Logout";
 export default function Welcome(currentUser ) {
     const [userName, setUserName] = useState("");
@@ -22,6 +23,7 @@ export default function Welcome(currentUser ) {
                 Welcome, <span>{userName}!</span>
             </h1>
             <h3>Please select a chat to Start messaging.</h3>
+            <BackendStatus />
             {/* <Logout/> */}
         </Container>
     );
